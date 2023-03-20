@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "løkke oppgave", "løkke oppgave\løkke oppgave.csproj", "{E009AAF9-4B59-42A9-B972-FE55B04D5F36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E009AAF9-4B59-42A9-B972-FE55B04D5F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E009AAF9-4B59-42A9-B972-FE55B04D5F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E009AAF9-4B59-42A9-B972-FE55B04D5F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E009AAF9-4B59-42A9-B972-FE55B04D5F36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {817542A9-6793-410D-BA0B-0934A35CC688}
+	EndGlobalSection
+EndGlobal
