@@ -50,16 +50,16 @@ namespace rpgGame
             int strength = 20;
             int potionCount = 3;
             int speed = 30;
-            var hero1 = new Goblin( name, hp, hp,  strength,  potionCount, speed);
+            Game.Hero1 = new Goblin( name, hp, hp,  strength,  potionCount, speed);
             name = "Peasant 1";
             hp = 80;
             potionCount = 2;
             speed = 20;
             var enemy1 = new Goblin(name, hp, hp, strength, potionCount, speed);
-            StartBattle(hero1, enemy1);
+            StartBattle(enemy1);
         }
 
-        static void StartBattle(object hero, object enemy) {
+        static void StartBattle(object enemy) {
             
         }
 
