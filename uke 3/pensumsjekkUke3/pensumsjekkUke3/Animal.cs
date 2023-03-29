@@ -19,12 +19,6 @@ namespace pensumsjekkUke3
             _favoritFood = favorit;
             _age = age;
         }
-
-        public void AgeUp()
-        {
-            Console.WriteLine(_age);
-            _age += 1;
-        }
         public void Feed()
         {
             Console.WriteLine("8 / 10");
