@@ -23,11 +23,11 @@ namespace pensumsjekkUke3
         }
         public void Feed()
         {
-            Console.WriteLine("8 / 10");
+            Console.WriteLine("5 / 10 this is ok");
         }
         public void Feed(string fav)
         {
-            Console.WriteLine("10 / 10 jeg elsker " + fav);
+            Console.WriteLine("10 / 10 i love " + fav);
         }
         public void Summary()
         {
