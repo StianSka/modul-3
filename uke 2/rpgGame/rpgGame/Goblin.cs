@@ -33,7 +33,7 @@ namespace rpgGame
         }
         public int BasicAttack()
         {
-            return this._strength;
+            return _strength;
         }
     }
 }

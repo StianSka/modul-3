@@ -12,53 +12,143 @@ namespace pensumsjekkUke3
     internal class Program
     {
         static List<Animal> myPets = new List<Animal>();
+        static string[] foods = { "roasted chicken", "cotton candy", "cupcakes", "shrimp", "lobster", "curry", "roast beef", "hearty stew", };
         static void Main(string[] args) {
+            NewAnimalMenu();
+        }
+
+        static void NewAnimalMenu() 
+        {
             Console.Clear();
-            MainMenu();
-            
-            Console.WriteLine("Gi det nye dyret ditt ett navn ");
+            Console.WriteLine("welcome please follow the instructions to choose a new pet");
+            Console.WriteLine("press 1; to adopt a Dragon");
+            Console.WriteLine("press 2; to adopt a Unicorn");
+            Console.WriteLine("press 3; to adopt a Phoenix");
+            Console.WriteLine("press 4; to adopt a Griffin");
+            Console.WriteLine("press 5; to adopt a Pegasus");
+            ConsoleKeyInfo choise = Console.ReadKey();
+            string type = ChosePet(choise);
+            CreateCreature(type);
+        }
+
+        static void CreateCreature(string type)
+        {
+            Console.Clear();
+            Console.WriteLine("please give your new " + type + " a fitting name then press enter");
             string name = Console.ReadLine();
+            string fav = foods[RngNum(0, foods.Length)];
             int age = RngNum(1, 4);
-            Console.WriteLine("Dyret heter nå  " + name);
-            var dyr = new Animal(name, "Bamsemums", age);
-            Console.WriteLine(dyr.Name() + " er " + dyr.Age() + " gammel");
-            Console.WriteLine("Trykk 1 for å mate " + dyr.Name());
-            string choise = Console.ReadLine();
-            Feed(choise, dyr);
-        }
-
-        private static void MainMenu() {
-            Console.WriteLine("velkommen her kan du vlege å adoptere ett nytt kjeledyr");
-            Console.WriteLine("trykk på 1; for å velge dyr 1");
-            Console.WriteLine("trykk på 2; for å velge dyr 2");
-            Console.WriteLine("trykk på 3; for å velge dyr 3");
-            string choise = Console.ReadLine();
-        }
-
-        static void Feed(string choise, Animal dyr) {
-            if (choise != "1") { return; }
+            Animal pet = new Animal(name, type ,fav, age);
+            myPets.Add(pet);
             Console.Clear();
-            Console.WriteLine("Venligst skriv inn hva du vil mate " + dyr.Name() + " med");
-            string food = Console.ReadLine();
-            if (dyr.Fav() != food) { dyr.Feed(); }
-            else { dyr.Feed(food); }
+            pet.Summary();
+            Console.WriteLine("press any key to continue");
+            Console.ReadKey();
+            PlayMenu();
         }
-        static int RngNum(int min, int max) {
+
+        static void PlayMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("press 1: to feed animal");
+            Console.WriteLine("press 2: to see all animal");
+            Console.WriteLine("press 3: to adopt a new animal");  
+            ConsoleKeyInfo choise = Console.ReadKey();
+            SelectAction(choise);
+        }
+
+        static void SelectAction(ConsoleKeyInfo choise)
+        {
+            
+            if (choise.KeyChar == '1') { SelecktAnimal(); }
+            else if (choise.KeyChar == '2') { ShowAnimals(); }
+            else if (choise.KeyChar == '3') { NewAnimalMenu(); }
+            else { PlayMenu(); }
+        }
+
+        static void ShowAnimals()
+        {
+            ListAnimals("List");
+            Console.WriteLine("press any key to return");
+            Console.ReadKey();
+            PlayMenu();
+        }
+
+        static void SelecktAnimal()
+        {
+            ListAnimals("Feed");
+            Console.WriteLine("please write the number that corresponds to the animal you would like to feed. Then press enter ");
+            string choise = Console.ReadLine();
+            FeedMenu(choise);
+        }
+
+        static void FeedMenu(string choise)
+        {
+            int petIndex = Convert.ToInt32(choise) - 1 ;
+            Console.Clear();
+            Console.WriteLine("please write the number that corresponds to the food you would like to give to " + myPets[petIndex].Name());
+            ListFood();
+            string food = Console.ReadLine();
+            int foodIndex = Convert.ToInt32(food) - 1;
+
+            if (myPets[petIndex].Fav() != foods[foodIndex]) { myPets[petIndex].Feed(); }
+            else { myPets[petIndex].Feed(foods[foodIndex]); }
+            Console.WriteLine("press ant key to return");
+            Console.ReadKey();
+            PlayMenu();
+        }
+
+        static void ListFood()
+        {
+            for (int i = 0; i < foods.Length; i++)
+            {
+                Console.WriteLine($"press {(i + 1)}: for {foods[i]}");
+            } 
+        }
+
+        static void ListAnimals(string toDo)
+        {
+            Console.Clear();
+            for (int i = 0; i < myPets.Count; i++)
+            {
+                Console.Write((i + 1) + " ");
+                if (toDo == "List") { myPets[i].Summary(); }
+                else if(toDo == "Feed") { Console.WriteLine(myPets[i].Name() + " the " + myPets[i].Type()); }
+            }
+        }
+
+        static string ChosePet(ConsoleKeyInfo choise)
+        {
+            string type = "";
+            switch (choise.KeyChar)
+            {
+                case '1':
+                    type = "Dragon";
+                    break;
+                case '2':
+                    type = "Unicorn";
+                    break;
+                case '3':
+                    type = "Phoenix";
+                    break;
+                case '4':
+                    type = "Griffin";
+                    break;
+                case '5':
+                    type = "Pegasus";
+                    break;
+                default:
+                    NewAnimalMenu();
+                    break;
+            }
+            return type;
+        }
+
+        static int RngNum(int min, int max) 
+        {
             Random random = new Random();
             int rng = random.Next(min, max);
             return rng;
-        }
-
-        //det her er bare å se bort i fra jeg ville bare prøve å se om.
-        //jeg kan sende med ett objekt uten å "vite" hvilken klasse det kommer fra 
-        static void Ting(object dyr)
-        {
-
-            if (dyr is Animal)
-            {
-                Animal animal = (Animal)dyr;
-                animal.Feed();
-            }
-        }
+        }   
     }
 }
