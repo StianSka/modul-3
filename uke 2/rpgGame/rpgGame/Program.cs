@@ -10,7 +10,7 @@ namespace rpgGame
         }
         static void MainMenu() {
             Console.Clear();
-            Console.WriteLine("Wlecome to RPG Game");
+            Console.WriteLine("Welcome to RPG Game");
             Console.WriteLine("Press the number of the option you would like to chose.");
             Console.WriteLine("1: Start new game");
             Console.WriteLine("2: Load save");
