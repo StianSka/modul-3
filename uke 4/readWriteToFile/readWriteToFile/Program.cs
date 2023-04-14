@@ -5,8 +5,33 @@
         static string path = "C:\\Users\\stian\\Documents\\GitHub\\modul-3-stuff\\uke 4\\readWriteToFile\\test.txt";
         static void Main(string[] args)
         {
-            MakeCreature();
+            //MakeCreature();
+            MakeCreatureFromFile();
         }
+
+        static void MakeCreatureFromFile()
+        {
+            List<Creature> creatures = new List<Creature>();
+
+            using (StreamReader reader = File.OpenText(path))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string name = reader.ReadLine();
+                    string species = reader.ReadLine();
+                    int age = Convert.ToInt32(reader.ReadLine());
+                    string gender = reader.ReadLine();
+
+                    Creature creature = new Creature(name, species, age, gender);
+                    creatures.Add(creature);
+                }
+            }
+            foreach (Creature creature in creatures)
+            {
+                Console.WriteLine($"Name: {creature.Name}, Species: {creature.Species}, Age: {creature.Age}, Gender: {creature.Gender}");
+            }
+        }
+
         static void MakeCreature()
         {
             string[] names = {"Kåre", "Pål", "Trude", "Mia"};
@@ -17,10 +42,9 @@
             int result = RandomNum(0, 2);
             string gender = result == 1 ? "han" : "hun";
             Creature creature = new Creature(name, thispecies, age, gender);
-            //ReadCreature();
+            ReadCreature();
             //ReadSpecificLine(4);
-            //EditFile(path, "test");
-            PrintCreatureDeets(creature);
+            //PrintCreatureDeets(creature);
         }
         static void PrintCreatureDeets(Creature creatue)
         {
@@ -32,14 +56,6 @@
             writer.WriteLine();
             writer.Close();
         }
-        //static void EditFile(string filePath, string newContent)
-        //{
-        //    using (StreamWriter writer = new StreamWriter(filePath, false))
-        //    {
-        //        writer.Write(newContent);
-        //        writer.Close();
-        //    }
-        //}
         static void ReadCreature()
         {
             StreamReader reader = new StreamReader(path);
