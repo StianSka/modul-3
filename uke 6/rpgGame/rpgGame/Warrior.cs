@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace rpgGame
 {
-    internal class Goblin : Enemy
+    internal class Warrior : Hero
     {
-        public Goblin(string name, int maxHp, int hp, int strength, int potionCount, int speed)
+        public Warrior(int id, string name, int maxHp, int hp, int strength, int potionCount, int speed)
         {
+            Id = id;
             Name = name;
             MaxHp = maxHp;
             Hp = hp;
@@ -17,7 +19,9 @@ namespace rpgGame
             PotionCount = potionCount;
             Speed = speed;
         }
-        
+
+
+
 
     }
 }

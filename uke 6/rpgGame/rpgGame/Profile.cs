@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace rpgGame
 {
-    
-    internal class Game
+    internal class Profile
     {
-        public static object Hero1;
-        public object Hero2;
-        public object Hero3;
+        public int Gold;
+        public List<Hero> Party;
+        // public List<Items> Loot;
     }
 }
