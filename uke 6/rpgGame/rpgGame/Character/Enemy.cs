@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rpgGame
+namespace rpgGame.Character
 {
     internal class Enemy
     {
@@ -27,5 +27,5 @@ namespace rpgGame
 
 
     }
-    
+
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace rpgGame
+namespace rpgGame.Character
 {
     internal class Warrior : Hero
     {
@@ -19,6 +19,7 @@ namespace rpgGame
             PotionCount = potionCount;
             Speed = speed;
         }
+        
 
 
 

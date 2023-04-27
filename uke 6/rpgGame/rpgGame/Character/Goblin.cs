@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rpgGame
+namespace rpgGame.Character
 {
     internal class Goblin : Enemy
     {
@@ -17,7 +17,7 @@ namespace rpgGame
             PotionCount = potionCount;
             Speed = speed;
         }
-        
+
 
     }
 }
