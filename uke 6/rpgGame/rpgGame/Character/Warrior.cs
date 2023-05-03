@@ -9,7 +9,7 @@ namespace rpgGame.Character
 {
     internal class Warrior : Hero
     {
-        public Warrior(int id, string name, int maxHp, int hp, int strength, int potionCount, int speed)
+        public Warrior(int id, string name, int maxHp, int hp, int strength, int potionCount, int speed) 
         {
             Id = id;
             Name = name;

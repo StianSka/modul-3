@@ -20,7 +20,6 @@ namespace rpgGame.Character
             if (PotionCount <= 0) { return; }
             if (Hp + 20 > MaxHp) { Hp = MaxHp; PotionCount -= 1; }
             else { Hp += 20; PotionCount -= 1; }
-
         }
 
 

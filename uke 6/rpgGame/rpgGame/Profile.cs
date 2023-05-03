@@ -12,7 +12,7 @@ namespace rpgGame
     {
         public static int Gold;
         public static List<Hero> Party = new List<Hero>();
-        // public List<Items> Loot;
+        // public static List<Items> Loot;
 
         public static void FillParty()
         {
@@ -23,6 +23,11 @@ namespace rpgGame
             }
         }
 
+        public static void CreateProfile()
+        {
+            FillParty();
+            Menu.GameMenu();
+        }
 
 
     }
